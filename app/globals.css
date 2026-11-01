@@ -762,3 +762,15 @@ body { background:#320000; }
 /* JavaScript owns the opening timeline; prevent legacy CSS from competing. */
 .opening-active,.opening-active .cover-card,.opening-active .ganesh-seal,.opening-active .ganesh-seal img,.opening-active .opening-stars span { animation:none; transition:none; }
 .opening-active { pointer-events:none; }
+
+.hero-welcome-message {
+  max-width:280px;
+  margin:52px auto 24px;
+  color:#e1bc7c;
+  font:italic 18px/1.7 Baskerville,'Times New Roman',serif;
+  text-align:center;
+  letter-spacing:.015em;
+  margin-top: 120px;
+}
+.invitation-entered .hero-welcome-message { animation:invitation-rise 1000ms 1000ms both; }
+@media(prefers-reduced-motion:reduce) { .invitation-entered .hero-welcome-message { animation:none; } }

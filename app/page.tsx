@@ -212,6 +212,7 @@ export default function Home() {
           </div>
           <p className="hero-kicker">The Wedding Of</p>
           <h1><span>Srisha</span><i>&amp;</i><span>Harivarmaa</span></h1>
+          <p className="hero-welcome-message">Together with our families,<br />we invite you to share in our joy.</p>
         </section>
 
         <section className="ceremony-info" id="ceremony" style={{ position: "relative", paddingTop: 76, border: 0 }}>
