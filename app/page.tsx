@@ -9,33 +9,6 @@ const PHOTOS = ["/img/image1.jpeg", "/img/image2.jpeg"];
 const WEDDING_TIME = new Date("2026-11-20T09:10:00+05:30").getTime();
 const CALENDAR_CELLS = ["", "", "", "", "", "", 1, ...Array.from({ length: 29 }, (_, i) => i + 2), "", "", "", "", "", ""];
 
-/* ─── Floating petal particles ─────────────────────────── */
-const PETALS = Array.from({ length: 18 }, (_, i) => ({
-  id: i,
-  left: `${Math.round((i * 5.88 + 3) % 100)}%`,
-  delay: `${(i * 1.37) % 12}s`,
-  duration: `${10 + (i * 1.2) % 8}s`,
-  size: `${8 + (i * 1.5) % 8}px`,
-}));
-
-function FloralSpray({ className = "" }: { className?: string }) {
-  return (
-    <svg className={`floral-spray ${className}`} viewBox="0 0 500 170" fill="none" aria-hidden="true">
-      <g stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M250 138C205 104 198 57 250 18c52 39 45 86 0 120Z" />
-        <path d="M250 130c-25-29-25-61 0-92 25 31 25 63 0 92Zm0-6c-12-19-12-40 0-61 12 21 12 42 0 61Z" />
-        <path d="M238 84c-24-12-39-29-43-54 27 6 44 20 52 43m15 11c24-12 39-29 43-54-27 6-44 20-52 43" />
-        <path d="M250 140c-30 0-59-14-85-44-23-27-48-39-78-37 19 29 43 44 73 47m90 34c30 0 59-14 85-44 23-27 48-39 78-37-19 29-43 44-73 47" />
-        <path d="M165 96c-5-18-18-31-40-39m-22 2c8 18 21 29 40 34m197 3c5-18 18-31 40-39m22 2c-8 18-21 29-40 34" />
-        <path d="M203 118c-23-2-43-11-59-28 24-3 44 3 60 18m93 10c23-2 43-11 59-28-24-3-44 3-60 18" />
-        <path d="M116 61c-9-9-13-20-12-34 14 8 22 18 24 31m268 3c9-9 13-20 12-34-14 8-22 18-24 31" />
-        <path d="M250 145v16m-7-7 7 7 7-7" />
-        <circle cx="250" cy="15" r="3" />
-      </g>
-    </svg>
-  );
-}
-
 function Flourish({ className = "" }: { className?: string }) {
   return (
     <svg className={`flourish ${className}`} viewBox="0 0 220 28" fill="none" aria-hidden="true">
@@ -146,18 +119,6 @@ export default function Home() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  /* Scroll-reveal via IntersectionObserver */
-  useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>(".reveal-on-scroll");
-    if (!els.length) return;
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.target.classList.toggle("visible", e.isIntersecting)),
-      { threshold: 0.15 }
-    );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, [coverOpen]);
 
   const openInvitation = () => {
     if (coverLeaving) return;
@@ -314,6 +275,7 @@ function DateLine({ day, date, month }: { day: string; date: string; month: stri
 function OrnamentBreak() {
   return <div className="ornament-break" aria-hidden="true"><span>❧</span><Flourish /><span>❧</span></div>;
 }
+
 
 
 
